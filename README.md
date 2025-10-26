@@ -1,38 +1,45 @@
-# sv
+# Room Ceiling Editor
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+> Interactive ceiling grid editor built with SvelteKit 5 and TailwindCSS 4
 
-## Creating a project
+## TL;DR
 
-If you're seeing this, you've probably already done this step. Congrats!
+A drag-and-drop SVG canvas application for designing room ceiling layouts with lighting fixtures, HVAC components, and smoke detectors. Features pan/zoom navigation, context menus, and real-time grid interactions.
 
-```sh
-# create a new project in the current directory
-npx sv create
+Right click to add cells.
 
-# create a new project in my-app
-npx sv create my-app
-```
+Change the canvas size from the bottom left.
 
-## Developing
+## Quick Start
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+```bash
+# Install dependencies
+npm install
 
-```sh
+# Start dev server
 npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
+# Build for production
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+## Project Structure
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```
+src/
+├── routes/+page.svelte          # Main canvas application
+├── lib/
+│   ├── components/
+│   │   ├── grid/                # Grid, cells, and floating elements
+│   │   ├── NodesMenu.svelte     # Context menu
+│   │   └── ZoomControl.svelte   # Zoom UI controls
+│   ├── types.ts                 # TypeScript definitions
+│   └── stores.ts                # Shared state management
+```
+
+## Cell Types
+
+- **Light** - Ceiling light fixtures
+- **Air Supply** - HVAC supply vents
+- **Air Return** - HVAC return vents
+- **Smoke Detector** - Fire safety sensors
